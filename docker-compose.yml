@@ -1,0 +1,74 @@
+version: "3.9"
+
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: desibites-mysql
+
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+    networks:
+      - desibites-network
+
+
+  backend:
+    build:
+      context: ./backend
+
+    image: desibites-backend:v1
+
+    container_name: desibites-backend
+
+    restart: unless-stopped
+
+    depends_on:
+      - mysql
+
+    environment:
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+
+    ports:
+      - "8081:8081"
+
+    networks:
+      - desibites-network
+
+
+  frontend:
+    build:
+      context: ./frontend/desibites-frontend
+
+    image: desibites-frontend:v1
+
+    container_name: desibites-frontend
+
+    restart: unless-stopped
+
+    depends_on:
+      - backend
+
+    ports:
+      - "3000:80"
+
+    networks:
+      - desibites-network
+
+
+volumes:
+  mysql-data:
+
+networks:
+  desibites-network:
