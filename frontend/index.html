@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DesiBites | Taste India, Delivered Fresh</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+
+        <div class="container">
+
+            <a class="navbar-brand logo" href="#">
+                🍛 DesiBites
+            </a>
+
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse"
+                id="menu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Restaurants</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Offers</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+
+                </ul>
+
+                <button class="btn btn-purple ms-3">
+                    Login
+                </button>
+                <button class="btn btn-outline-dark ms-2" id="cartBtn">
+    🛒 Cart (<span id="cartCount">0</span>)
+</button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-6">
+
+                    <h1>
+                        Taste India,
+                        <span>Delivered Fresh.</span>
+                    </h1>
+
+                    <p>
+
+                        Enjoy delicious Indian food from your favourite restaurants.
+                        Fast delivery. Affordable prices. Fresh every time.
+
+                    </p>
+
+                    <button class="btn btn-purple btn-lg">
+
+                        Order Now
+
+                    </button>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=900"
+                        class="img-fluid hero-image">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- Search Section -->
+
+<section class="search-section">
+
+    <div class="container">
+
+        <h2 class="text-center mb-4">
+            Find Your Favourite Food 🍽️
+        </h2>
+
+        <div class="search-box">
+
+            <input type="text"
+                placeholder="Search Biryani, Dosa, Pizza...">
+
+            <button class="btn btn-purple">
+                Search
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Categories -->
+
+<section class="categories">
+
+    <div class="container">
+
+        <h2 class="text-center mb-5">
+            Popular Categories
+        </h2>
+
+        <div class="row">
+
+            <div class="col-md-3">
+
+                <div class="category-card">
+
+                    🍛
+
+                    <h4>Biryani</h4>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="category-card">
+
+                    🥞
+
+                    <h4>Dosa</h4>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="category-card">
+
+                    🫓
+
+                    <h4>North Indian</h4>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="category-card">
+
+                    🧋
+
+                    <h4>Beverages</h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- Popular Restaurants -->
+
+<section class="restaurants">
+
+<div class="container">
+
+<h2 class="text-center mb-5">
+
+Popular Restaurants
+
+</h2>
+
+<div class="row">
+
+<div class="col-md-3">
+
+<div class="restaurant-card">
+
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" class="img-fluid">
+
+<h4>Amma's Kitchen</h4>
+
+<p>⭐ 4.8 | 🕒 25 mins</p>
+
+<p>📍 Anna Nagar</p>
+
+<p><strong>₹200 for two</strong></p>
+
+<button class="btn btn-purple">
+
+View Menu
+
+</button>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="restaurant-card">
+
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500" class="img-fluid">
+
+<h4>Royal Biryani</h4>
+
+<p>⭐ 4.7 | 🕒 30 mins</p>
+
+<p>📍 Velachery</p>
+
+<p><strong>₹250 for two</strong></p>
+
+<button class="btn btn-purple">
+
+View Menu
+
+</button>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="restaurant-card">
+
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500" class="img-fluid">
+
+<h4>Spice Villa</h4>
+
+<p>⭐ 4.9 | 🕒 20 mins</p>
+
+<p>📍 T Nagar</p>
+
+<p><strong>₹180 for two</strong></p>
+
+<button class="btn btn-purple">
+
+View Menu
+
+</button>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="restaurant-card">
+
+<img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500" class="img-fluid">
+
+<h4>South Treat</h4>
+
+<p>⭐ 4.6 | 🕒 22 mins</p>
+
+<p>📍 Adyar</p>
+
+<p><strong>₹220 for two</strong></p>
+
+<button class="btn btn-purple">
+
+View Menu
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- Today's Specials -->
+
+<section class="specials">
+
+    <div class="container">
+
+        <h2 class="text-center mb-5">
+            Today's Special
+        </h2>
+
+        <div class="row">
+
+            <!-- Dish 1 -->
+
+            <div class="col-md-3">
+
+                <div class="food-card">
+
+                    <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=500" class="img-fluid">
+
+                    <h4>Hyderabadi Biryani</h4>
+
+                    <p>⭐⭐⭐⭐⭐ (4.9)</p>
+
+                    <h5>₹249</h5>
+
+                    <button
+    class="btn btn-purple w-100 add-cart"
+    data-name="Hyderabadi Biryani"
+    data-price="249">
+
+    Add to Cart
+
+</button>
+
+                </div>
+
+            </div>
+
+            <!-- Dish 2 -->
+
+            <div class="col-md-3">
+
+                <div class="food-card">
+
+                    <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500" class="img-fluid">
+
+                    <h4>Masala Dosa</h4>
+
+                    <p>⭐⭐⭐⭐⭐ (4.8)</p>
+
+                    <h5>₹99</h5>
+
+                    <button class="btn btn-purple w-100">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Dish 3 -->
+
+            <div class="col-md-3">
+
+                <div class="food-card">
+
+                    <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=500" class="img-fluid">
+
+                    <h4>Paneer Butter Masala</h4>
+
+                    <p>⭐⭐⭐⭐⭐ (4.7)</p>
+
+                    <h5>₹199</h5>
+
+                    <button class="btn btn-purple w-100">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Dish 4 -->
+
+            <div class="col-md-3">
+
+                <div class="food-card">
+
+                    <img src="https://images.unsplash.com/photo-1628294895950-9805252327bc?w=500" class="img-fluid">
+
+                    <h4>Gulab Jamun</h4>
+
+                    <p>⭐⭐⭐⭐⭐ (4.9)</p>
+
+                    <h5>₹79</h5>
+
+                    <button class="btn btn-purple w-100">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
