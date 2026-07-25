@@ -71,13 +71,13 @@ pipeline {
             }
         }
 	
-#	stage('Owasp Dependency Check '){
-#		steps{
-#			dependencyCheck additionalArguments: '--scan .',
-#				odcInstallation: 'Dependency-Check'
-#		}
-#
-#	}
+//	stage('Owasp Dependency Check '){
+//		steps{
+//			dependencyCheck additionalArguments: '--scan .',
+//				odcInstallation: 'Dependency-Check'
+//		}
+//
+//	}
 
 	stage('Publish Dependency Check Report'){
 		steps{
