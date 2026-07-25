@@ -11,7 +11,6 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'Checking out source code...'
                 checkout scm
             }
         }
@@ -33,37 +32,58 @@ pipeline {
                 }
             }
         }
-	
-	stage('Build Backend Docker Image') {
- 	   steps {
- 	       dir('backend') {
-        	    sh '''docker build -t desibites-backend:latest .'''
-        	}
-	    }
-	}
 
-	stage('Build Frontend Docker Image') {
- 	   steps {
-        	dir('frontend/desibites-frontend') {
-            		sh '''docker build -t desibites-frontend:latest .'''
-        	}
-    	    }
-	}
+        stage('Build Backend Docker Image') {
+            steps {
+                dir('backend') {
+                    sh 'docker build -t desibites-backend:latest .'
+                }
+            }
+        }
+
+        stage('Build Frontend Docker Image') {
+            steps {
+                dir('frontend/desibites-frontend') {
+                    sh 'docker build -t desibites-frontend:latest .'
+                }
+            }
+        }
+
+        stage('Scan Backend Image') {
+            steps {
+                sh '''
+                trivy image \
+                --severity HIGH,CRITICAL \
+                --format table \
+                desibites-backend:latest
+                '''
+            }
+        }
+
+        stage('Scan Frontend Image') {
+            steps {
+                sh '''
+                trivy image \
+                --severity HIGH,CRITICAL \
+                --format table \
+                desibites-frontend:latest
+                '''
+            }
+        }
 
     }
 
-
     post {
+        always {
+            cleanWs()
+        }
+
         success {
-            echo 'Pipeline completed successfully!'
+            echo 'Pipeline Completed Successfully'
         }
 
         failure {
-            echo 'Pipeline failed.'
-        }
-
-        always {
-            cleanWs()
+            echo 'Pipeline Failed'
         }
     }
 }
