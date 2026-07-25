@@ -33,8 +33,25 @@ pipeline {
                 }
             }
         }
+	
+	stage('Build Backend Docker Image') {
+ 	   steps {
+ 	       dir('backend') {
+        	    sh '''docker build -t desibites-backend:latest .'''
+        	}
+	    }
+	}
+
+	stage('Build Frontend Docker Image') {
+ 	   steps {
+        	dir('frontend/desibites-frontend') {
+            		sh '''docker build -t desibites-frontend:latest .'''
+        	}
+    	    }
+	}
 
     }
+
 
     post {
         success {
