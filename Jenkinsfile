@@ -74,7 +74,7 @@ pipeline {
 	stage('Owasp Dependency Check '){
 		steps{
 			dependencyCheck additionalArguments: '--scan .',
-				odcInstallation: 'DependencyCheck'
+				odcInstallation: 'Dependency-Check'
 		}
 
 	}
