@@ -70,6 +70,20 @@ pipeline {
                 '''
             }
         }
+	
+	stage('Owasp Dependency Check '){
+		steps{
+			dependencyCheck addtionalArguments: '--scan .',
+				odcInstallation: 'DependencyCheck'
+		}
+
+	}
+
+	stage('Publish Dependency Check Report'){
+		steps{
+			dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+		}
+	}
 
     }
 
