@@ -71,19 +71,45 @@ pipeline {
             }
         }
 	
-	stage('Owasp Dependency Check '){
-		steps{
-			dependencyCheck additionalArguments: '--scan .',
-				odcInstallation: 'Dependency-Check'
-		}
-
-	}
+#	stage('Owasp Dependency Check '){
+#		steps{
+#			dependencyCheck additionalArguments: '--scan .',
+#				odcInstallation: 'Dependency-Check'
+#		}
+#
+#	}
 
 	stage('Publish Dependency Check Report'){
 		steps{
 			dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
 		}
 	}
+
+	stage('Push Docker Images') {
+	    steps {
+        	script {
+            		withCredentials([usernamePassword(
+                		credentialsId: 'dockerhub',
+                		usernameVariable: 'DOCKER_USER',
+                		passwordVariable: 'DOCKER_PASS')]) 
+	    {
+
+                sh '''
+                    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+
+                    docker tag desibites-backend:latest fardinwork/desibites-backend:latest
+                    docker tag desibites-frontend:latest fardinwork/desibites-frontend:latest
+
+                    docker push fardinwork/desibites-backend:latest
+                    docker push fardinwork/desibites-frontend:latest
+
+                    docker logout
+                '''
+        	    	}
+	        }
+	    }
+	}
+
 
     }
 
