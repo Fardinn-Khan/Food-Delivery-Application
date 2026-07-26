@@ -130,6 +130,15 @@ pipeline {
 		   '''
     			}
 		}
+	stage('Verify Deployment') {
+ 	   steps {
+        	sh '''
+            		kubectl get pods -n desibites
+            		kubectl get svc -n desibites
+            		kubectl get ingress -n desibites
+        	   '''
+    		}
+	 }
     }
 
     post {
