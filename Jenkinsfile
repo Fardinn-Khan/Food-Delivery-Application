@@ -108,12 +108,10 @@ pipeline {
 		    docker push fardinwork/desibites-backend:latest
 
 		    docker push fardinwork/desibites-frontend:${BUILD_NUMBER}
-		    docker push fardinwork/desibites-frontend:latest
-                    
-		    
+		    docker push fardinwork/desibites-frontend:latest             
 
                     docker logout
-                '''
+                    '''
         	    	}
 	        }
 	    }
