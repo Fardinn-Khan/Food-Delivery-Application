@@ -79,11 +79,11 @@ pipeline {
 //
 //	}
 
-	stage('Publish Dependency Check Report'){
-		steps{
-			dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
-		}
-	}
+//	stage('Publish Dependency Check Report'){
+//		steps{
+//			dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+//		}
+//	}
 
 	stage('Push Docker Images') {
 	    steps {
@@ -97,11 +97,20 @@ pipeline {
                 sh '''
                     echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
 
-                    docker tag desibites-backend:latest fardinwork/desibites-backend:latest
-                    docker tag desibites-frontend:latest fardinwork/desibites-frontend:latest
+		    docker tag desibites-backend:latest fardinwork/desibites-backend:${BUILD_NUMBER}
+		    docker tag desibites-backend:latest fardinwork/desibites-backend:latest
+                    
 
-                    docker push fardinwork/desibites-backend:latest
-                    docker push fardinwork/desibites-frontend:latest
+		    docker tag desibites-frontend:latest fardinwork/desibites-frontend:${BUILD_NUMBER}
+		    docker tag desibites-frontend:latest fardinwork/desibites-frontend:latest
+
+                    docker push fardinwork/desibites-backend:${BUILD_NUMBER}
+		    docker push fardinwork/desibites-backend:latest
+
+		    docker push fardinwork/desibites-frontend:${BUILD_NUMBER}
+		    docker push fardinwork/desibites-frontend:latest
+                    
+		    
 
                     docker logout
                 '''
@@ -110,7 +119,17 @@ pipeline {
 	    }
 	}
 
-
+	stage('Deploy to Kubernetes') {
+ 	   steps {
+        	sh '''
+            		kubectl apply -f k8s/
+			kubectl rollout restart deployment/backend -n desibites
+			kubectl rollout restart deployment/frontend -n desibites
+			kubectl rollout status deployment/backend -n desibites
+			kubectl rollout status deployment/frontend -n desibites
+		   '''
+    			}
+		}
     }
 
     post {
