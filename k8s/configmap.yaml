@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: desibites-config
+  namespace: desibites
+
+data:
+  MYSQL_DATABASE: desibites
+  SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/desibites
+  SPRING_DATASOURCE_USERNAME: root
