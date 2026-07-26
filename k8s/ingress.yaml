@@ -9,28 +9,20 @@ spec:
   ingressClassName: nginx
 
   rules:
-  - host: desibites.local
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 80
 
-    http:
-
-      paths:
-
-      - path: /
-
-        pathType: Prefix
-
-        backend:
-          service:
-            name: frontend
-            port:
-              number: 80
-
-      - path: /api
-
-        pathType: Prefix
-
-        backend:
-          service:
-            name: backend
-            port:
-              number: 3000
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: backend
+                port:
+                  number: 3000
