@@ -847,7 +847,7 @@ Building this project demonstrates hands-on, practical proficiency in:
 
 ## 👤 23. Author
 
-**Your Name**
+**Fardin Khan**
 DevOps / Cloud Engineer
 
 - 🔗 GitHub: [@Fardinn-Khan](https://github.com/Fardinn-Khan)
