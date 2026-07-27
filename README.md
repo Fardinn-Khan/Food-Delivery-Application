@@ -4,8 +4,6 @@
 
 ### *A production-style DevSecOps pipeline: from `git push` to a monitored, security-scanned deployment on Kubernetes*
 
-<img src="https://via.placeholder.com/900x300.png?text=Project+Logo+%2F+Banner" alt="Project Banner" width="100%"/>
-
 <br/>
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge&logo=jenkins)](#)
@@ -14,11 +12,6 @@
 [![Security: Trivy](https://img.shields.io/badge/security-trivy-1904DA?style=for-the-badge&logo=aqua&logoColor=white)](#)
 [![Code Quality](https://img.shields.io/badge/code%20quality-sonarqube-4E9BCD?style=for-the-badge&logo=sonarqube&logoColor=white)](#)
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow?style=for-the-badge)](#-license)
-
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/your-repo?style=for-the-badge&color=gold)](#)
-[![GitHub Forks](https://img.shields.io/github/forks/yourusername/your-repo?style=for-the-badge&color=blue)](#)
-[![Last Commit](https://img.shields.io/github/last-commit/yourusername/your-repo?style=for-the-badge)](#)
-[![GitHub Actions](https://img.shields.io/badge/CI-Jenkins%20Pipeline-D33833?style=for-the-badge&logo=jenkins&logoColor=white)](#)
 
 </div>
 
